@@ -8,6 +8,7 @@
     "express": "~4.10.1",
     "mongodb": "~2.0",
     "path": "~0.4.9",
-    "body-parser": "~1.9.2"
+    "body-parser": "~1.9.2",
+    "moment": "~2.8.3"
   }
 }
