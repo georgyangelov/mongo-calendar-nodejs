@@ -1,0 +1,13 @@
+{
+  "name": "mongo-calendar-nodejs",
+  "version": "0.0.1",
+  "description": "A nodejs example project for the mongodb driver",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "~4.10.1",
+    "mongodb": "~2.0",
+    "path": "~0.4.9",
+    "body-parser": "~1.9.2"
+  }
+}
