@@ -37,7 +37,7 @@ module.exports = function(database) {
     router.get('/:id', function(req, res) {
         var id = new ObjectID(req.param('id'));
 
-        tasks.findOne({_id: id}, function(err, task) {
+        tasks.find({_id: id}).limit(1).next(function(err, task) {
             if (err) {
                 console.error('Cannot get task', err);
                 return res.status(500).send();
@@ -72,7 +72,7 @@ module.exports = function(database) {
     router.post('/', function(req, res) {
         var task = to_database(req.body);
 
-        tasks.insert(task, function(err) {
+        tasks.insertOne(task, function(err) {
             if (err) {
                 console.error('Cannot insert task', err);
                 return res.status(500).send();
@@ -85,7 +85,7 @@ module.exports = function(database) {
     router.put('/', function(req, res) {
         var task = to_database(req.body);
 
-        tasks.update({_id: task._id}, task, function(err) {
+        tasks.replaceOne({_id: task._id}, task, function(err) {
             if (err) {
                 console.error('Cannot update task', err);
                 return res.status(500).send();
